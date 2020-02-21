@@ -38,7 +38,7 @@ namespace Sqorm.Data.Client
         /// <param name="query">SQL query to fetch sql data.</param>
         /// <typeparam name="T">Desired object type for return value.</typeparam>
         /// <returns>First row of first column type cast to type 'T'.</returns>
-        T ExecuteScalar<T>(string query);
+        T ExecuteScalar<T>(string query) where T : IEquatable<T>, IConvertible;
         
         /// <summary>
         /// Executes provided sql query against database and returns
@@ -65,7 +65,7 @@ namespace Sqorm.Data.Client
         /// <param name="query">SQL query to fetch sql data.</param>
         /// <typeparam name="T">Desired object type for return value.</typeparam>
         /// <returns>First row of first column type cast to type 'T'.</returns>
-        Task<T> ExecuteScalarAsync<T>(string query);
+        Task<T> ExecuteScalarAsync<T>(string query) where T : IEquatable<T>, IConvertible;
         
         /// <summary>
         /// Asynchronously executes provided sql query against database returns
