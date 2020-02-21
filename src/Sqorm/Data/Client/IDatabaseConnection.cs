@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace sqorm.Data.Client
+namespace Sqorm.Data.Client
 {
     public interface IDatabaseConnection : IDisposable
     {
