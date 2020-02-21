@@ -1,9 +1,12 @@
 # Sqorm.Console
-This is a console application to test **Sqorm** module. This application basically fetches a list of all users in the databasem mapped to a collection of **User** object.<br/>
-This document walks you through the step-by-step to run **Sqorm.Console** application. Please go through the document thoroughly.
+This is a console application to test **Sqorm** module. This application basically fetches a list of all users in the database mapped to a collection of **User** objects.<br/>
+This document walks you through the step-by-step process to run **Sqorm.Console** application. Please go through the document thoroughly.
+
+## .Net Version
+netcore 3.1
 
 ## Database Setup
-You can find Sql scripts each for Sql Server and Postgres in **SqlScripts** folder inside project directory. Run these queries against each database server respectively or a db server of your choice. Both of these scripts create a database called **SqormTestDb** where a table called **users** is created with 3 rows inserted.
+You can find Sql scripts each for Sql Server and Postgres in **SqlScripts** folder inside project directory. Run these queries against each database server respectively or a db server of your choice. Both of these scripts create a database called **SqormTestDb** where a table called **users** is created with 3 rows populated with mock data. 
 
 ## Program.Main method
 By default Sqorm.Console application fetches user data from both data servers. There are two methods defined to test data fetch one for each database server type as,
@@ -13,10 +16,11 @@ TestSqlServer();
 System.Console.WriteLine("Postgres server...");
 TestPostgres();
 ```
-Call only the appropriate method depending on your database server commenting out the other in order to avoid db connection errors. If you setup both data servers previously, no change is needed.
+Call only the appropriate method depending on your database server commenting out the other in order to avoid db connection errors. If you setup both data servers previously, no change is needed.<br/>
+Please also make sure that you modify the connection strings as per your database configuration.
 
 ## Output
-To the console application run the following commands from the project directory
+To start the console application run the following commands from project directory
 ```console
 Sqorm\src\Sqorm.Console> dotnet restore
 Sqorm\src\Sqorm.Console> dotnet build
