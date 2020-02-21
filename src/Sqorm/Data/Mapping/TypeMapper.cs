@@ -70,7 +70,7 @@ namespace Sqorm.Data.Mapping
 
                 object dataValue = row[columnInfo.Value];
                 if(!(dataValue is DBNull))
-                    propertyInfo.SetValue(result, Convert.ChangeType(dataValue, _type));
+                    propertyInfo.SetValue(result, Convert.ChangeType(dataValue, propertyInfo.PropertyType));
             }
 
             return result;
