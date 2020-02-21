@@ -28,22 +28,32 @@ namespace Sqorm.Console
     {
         static void Main(string[] args)
         {
+            System.Console.WriteLine("From Sql Server...");
             TestSqlServer();
+            System.Console.WriteLine("From Postgres server...");
+            TestPostgres();
         }
 
         private static void TestSqlServer()
         {
-            string sqlServerConnectionString = "server=localhost;database=SqormTestDb;Integrated Security=true";
-            using (IDatabaseConnection connection = new SqlServerConnection(sqlServerConnectionString))
-            {
-                connection.Open();
-                string query = "SELECT * FROM users;";
-                var users = connection.ExecuteReader<User>(query);
+            TestDbConnection(new SqlServerConnection("server=localhost;database=SqormTestDb;Integrated Security=true"));
+        }
 
-                foreach (var user in users)
-                {
-                    System.Console.WriteLine(user.ToString());
-                }
+        private static void TestPostgres()
+        {
+            TestDbConnection(new PostgresConnection("Server=localhost;Port=5432;Database=SqormTestDb;User Id=postgres;Password=postgrespass;"));
+        }
+
+        private static void TestDbConnection(IDatabaseConnection connection)
+        {
+            connection.Open();
+            string query = "SELECT * FROM users;";
+            var users = connection.ExecuteReader<User>(query);
+            connection.Close();
+
+            foreach (var user in users)
+            {
+                System.Console.WriteLine(user.ToString());
             }
         }
     }
