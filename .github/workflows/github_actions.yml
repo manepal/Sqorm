@@ -1,4 +1,4 @@
-name: .NET build workflow
+name: Sqorm build workflow
 
 on:
   pull_request:
@@ -22,5 +22,5 @@ jobs:
       working-directory: ./src/Sqorm
       run: dotnet build --configuration Release
     - name: Building Sqorm.Console application
-      working-directory: ./src/Sqorm.Console
+      working-directory: ../Sqorm.Console
       run: dotnet build --configiration Release
