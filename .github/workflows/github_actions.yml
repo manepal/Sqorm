@@ -23,4 +23,4 @@ jobs:
       run: dotnet build --configuration Release
     - name: Building Sqorm.Console application
       working-directory: ../Sqorm.Console
-      run: dotnet build --configiration Release
+      run: dotnet build --configuration Release
