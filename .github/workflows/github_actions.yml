@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Building
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,4 @@ jobs:
         dotnet-version: 3.1.101
     - name: Building Sqorm module
       working-directory: ./src/Sqorm
-      run: dotnet build --configuration Release
-    - name: Building Sqorm.Console application
-      working-directory: ../Sqorm.Console
       run: dotnet build --configuration Release
