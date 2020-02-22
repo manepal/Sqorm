@@ -1,4 +1,4 @@
-# Sqorm.Console
+# Sqorm.WebApi
 This is a web api application to test **Sqorm** module. This api exposes two methods to save a user and fetch a list of all users in the database.<br/>
 This document walks you through the step-by-step process to run **Sqorm.WebApi** project. Please go through the document thoroughly.
 
