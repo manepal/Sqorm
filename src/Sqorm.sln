@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqorm", "Sqorm\Sqorm.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqorm.Console", "Sqorm.Console\Sqorm.Console.csproj", "{832349DD-3361-4173-AAC1-C24A5DC4E92C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqorm.WebApi", "Sqorm.WebApi\Sqorm.WebApi.csproj", "{29F2DF79-500A-414D-A91C-4ECAB33DB876}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{832349DD-3361-4173-AAC1-C24A5DC4E92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{832349DD-3361-4173-AAC1-C24A5DC4E92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{832349DD-3361-4173-AAC1-C24A5DC4E92C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29F2DF79-500A-414D-A91C-4ECAB33DB876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29F2DF79-500A-414D-A91C-4ECAB33DB876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29F2DF79-500A-414D-A91C-4ECAB33DB876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29F2DF79-500A-414D-A91C-4ECAB33DB876}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@ This document walks you through the step-by-step process to run **Sqorm.Console*
 netcore 3.1
 
 ## Database Setup
-You can find Sql scripts each for Sql Server and Postgres in **SqlScripts** folder inside project directory. Run these queries against each database server respectively or a db server of your choice. Both of these scripts create a database called **SqormTestDb** where a table called **users** is created with 3 rows populated with mock data. 
+You can find Sql scripts each for Sql Server and Postgres in **SqlScripts** folder inside **src** directory. Run these queries against each database server respectively or a db server of your choice. Both of these scripts create a database called **SqormTestDb** where a table called **users** is created with 3 rows populated with mock data. 
 
 ## Program.Main method
 By default Sqorm.Console application fetches user data from both data servers. There are two methods defined to test data fetch one for each database server type as,
