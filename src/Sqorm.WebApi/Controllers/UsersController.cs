@@ -22,6 +22,15 @@ namespace Sqorm.WebApi.Controllers
             return Ok(await _userRepository.GetAllAsync());
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetById(long id)
+        {
+            var user  = await _userRepository.GetByIdAsync(id);
+            if(user == null)
+                return NotFound($"Could not find user with id: {id}.");
+            return Ok(user);
+        }
+
         [HttpPost]
         public async Task<ActionResult> Register([FromBody]RegisterUserDto userDto)
         {
