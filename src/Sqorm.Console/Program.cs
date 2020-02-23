@@ -1,7 +1,7 @@
 ﻿using System;
 using Sqorm.Data.Attributes;
 using Sqorm.Data.Client;
-
+using Sqorm.Models;
 using Console = System.Console;
 
 namespace Sqorm.Console
@@ -47,8 +47,9 @@ namespace Sqorm.Console
         private static void TestDbConnection(IDatabaseConnection connection)
         {
             connection.Open();
-            string query = "SELECT * FROM users;";
-            var users = connection.ExecuteReader<User>(query);
+            string query = "SELECT * FROM users WHERE id >= @id;";
+            var users = connection.ExecuteReader<User>(query, new ParameterContainer {{ "@id", 1 }});
+            query = "SELECT * FROM users WHERE id=@id;";
             connection.Close();
 
             foreach (var user in users)
