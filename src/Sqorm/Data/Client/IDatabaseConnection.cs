@@ -24,6 +24,12 @@ namespace Sqorm.Data.Client
         Task OpenAsync();
 
         /// <summary>
+        /// Sets command type
+        /// </summary>
+        /// <param name="sqormCommandType">Command type</param>
+        void SetCommandType(SqormCommandType sqormCommandType);
+
+        /// <summary>
         /// Executes provided sql query against database
         /// and returns the number of rows affected by the query.
         /// Ideal for performing Upsert operations.

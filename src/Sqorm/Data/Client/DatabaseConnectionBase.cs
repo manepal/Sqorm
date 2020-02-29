@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Threading.Tasks;
 using Sqorm.Data.Mapping;
@@ -11,10 +12,13 @@ namespace Sqorm.Data.Client
     public abstract class DatabaseConnectionBase : IDatabaseConnection
     {
         protected readonly DbConnection _connection;
+        protected CommandType _commandType;
+        protected bool _isConnectionDisposed;
 
-        public DatabaseConnectionBase(DbConnection connection)
+        protected DatabaseConnectionBase(DbConnection connection)
         {
             _connection = connection;
+            _commandType = CommandType.Text;
         }
 
         public void Open()
@@ -34,7 +38,24 @@ namespace Sqorm.Data.Client
 
         public void Dispose()
         {
-            _connection.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_isConnectionDisposed)
+                return;
+
+            if(disposing)
+                _connection.Dispose();
+
+            _isConnectionDisposed = true;
+        }
+
+        public void SetCommandType(SqormCommandType sqormCommandType)
+        {
+            _commandType = sqormCommandType.ToCommandType();
         }
 
         public int ExecuteNonQuery(string query, ParameterContainer queryParameters = null)
@@ -93,6 +114,7 @@ namespace Sqorm.Data.Client
         {
             DbCommand command = _connection.CreateCommand();
             command.CommandText = query;
+            command.CommandType = _commandType;
             command.AddParameters(queryparameters);
             return command;
         }

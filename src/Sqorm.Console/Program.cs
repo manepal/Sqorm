@@ -47,9 +47,11 @@ namespace Sqorm.Console
         private static void TestDbConnection(IDatabaseConnection connection)
         {
             connection.Open();
+            connection.SetCommandType(SqormCommandType.Text);
             string query = "SELECT * FROM users WHERE id >= @id;";
             var users = connection.ExecuteReader<User>(query, new ParameterContainer {{ "@id", 1 }});
             query = "SELECT * FROM users WHERE id=@id;";
+            connection.SetCommandType(SqormCommandType.StoredProcedure);
             connection.Close();
 
             foreach (var user in users)
